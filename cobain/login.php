@@ -17,6 +17,7 @@ list($id, $username, $pass) = mysqli_fetch_array($data);
 if($cek > 0){
 	if (password_verify($password, $pass)){
 		session_start();
+		$_SESSION['admin_id'] = $id;
 		$_SESSION['username'] = $username;
 		$_SESSION['status'] = "login";
 		header("location:admin/index2.php");
